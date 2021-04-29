@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employee Detail</h1>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empdetails.each do |empdetail| %>
+      <tr>
+        <td><%= empdetail.name %></td>
+        <td><%= empdetail.role %></td>
+        <td><%= empdetail.email %></td>
+        <td><%= empdetail.phone_number %></td>
+        <td><%= empdetail.location %></td>
+        <td><%= link_to 'Show', empdetail %></td>
+        <td><%= link_to 'Edit', edit_empdetail_path(empdetail) %></td>
+        <td><%= link_to 'Destroy', empdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empdetail', new_empdetail_path,class:"btn btn-primary btn-lg active" %>
+
+   
+  
+    <%= paginate @empdetails,class:" pagination pagination-sm page-item active" %>
+
+
+
+
